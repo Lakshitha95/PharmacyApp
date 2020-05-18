@@ -1,0 +1,35 @@
+ <!--  class="logo-card" -->
+ 
+<mat-card class="example-card" >
+  <img
+  width="400px"
+  height="400px"
+  margin-left = "500px"
+  alt="Pharmacy Logo"
+  src="assets/images/Arogya.jpg"
+/>
+
+<div class="container">
+    <div class="example-container">
+      <!--<mat-spinner *ngIf="isLoading"></mat-spinner> -->
+    <form  name="loginForm" (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm" >  <!--   -->
+     <mat-form-field [style.width.px]="300" appearance="fill">
+       <mat-label>Enter your email</mat-label>
+       <input matInput placeholder="AP@xxx" type="email" [formControl]="email" required> <!--ngModel   -->
+       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+     </mat-form-field>
+     <br>
+     <mat-form-field [style.width.px]="300" appearance="fill">  
+       <mat-label>Enter your password</mat-label>
+       <input matInput [type]="hide ? 'password' : 'text'" name="password" required>
+       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+       </button>
+     </mat-form-field>
+     <br>
+     <button mat-raised-button [style.width.px]="140" routerLink = '/adminpanel' type="submit">Login</button> <!--*ngIf="!isLoading"   -->
+     <button mat-raised-button [style.width.px]="140" class="mat-button" type="reset" >Reset</button>  <!--*ngIf="!isLoading"    -->
+    </form>
+    </div>
+</div>
+</mat-card>

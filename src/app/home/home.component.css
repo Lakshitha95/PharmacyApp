@@ -1,0 +1,40 @@
+body {
+  background-color: #43AC72;
+}
+
+.inputClass {
+    margin-left: 40px;
+    background-color: whitesmoke;
+    max-width: 400px;
+  }
+  
+  .example-right-align {
+    text-align: right;
+  }
+  
+  input.example-right-align::-webkit-outer-spin-button,
+  input.example-right-align::-webkit-inner-spin-button {
+    display: none;
+  }
+  
+  input.example-right-align {
+    -moz-appearance: textfield;
+  }
+
+  .example-card {
+    margin-left: 40px;
+    max-width: 400px;
+    align-content: center;
+    background-color: #2b9948;
+  }
+
+  .mat-button {
+    margin-left: 40px;
+  }
+
+  .logo-card {
+    margin-right: 40px;
+    max-width: 400px;
+    max-height: 400px;
+    padding: 10px;
+  }

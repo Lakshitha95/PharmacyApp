@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital@1&display=swap');
+
+.title-class {
+    text-align: center;
+    font-family: 'Vollkorn', serif;
+    src: url('https://fonts.googleapis.com/css2?family=Vollkorn:ital@1&display=swap');
+    font-weight: bold;
+}
