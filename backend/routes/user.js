@@ -14,7 +14,7 @@ router.post("/signup", (req, res, _next) =>{
         name: req.body.name,
         address: req.body.address,
         telephone: req.body.telephone,
-        position: req.body.position,
+        role: req.body.role,
         password: hash
     });
     user.save()
@@ -33,10 +33,23 @@ router.post("/signup", (req, res, _next) =>{
 
 });
 
+router.get("/showusers", (req, res, _next) =>{
+  User.find().then(documents => {
+      res.status(200).json({
+          message: "Users Fetched!",
+          users: documents
+      });
+  });
+
+});
+
+
+/*  
 router.post("/login", (req, res, next) => {
   let fetchedUser;
   User.findOne({ email: req.body.email})
   .then(user => {
+    console.log(user);
     if (!user) {
       return res.status(401).json({
         message: "Authentication failed!"
@@ -46,6 +59,7 @@ router.post("/login", (req, res, next) => {
     return bcrypt.compare(req.body.password, user.password);
   })
   .then(result => {
+    console.log(user);
     if (!result) {
       return res.status(401).json({
         message: "Authentication failed!"
@@ -66,5 +80,7 @@ router.post("/login", (req, res, next) => {
     }); 
   });
 });
+
+*/
 
 module.exports = router;

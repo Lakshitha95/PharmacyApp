@@ -1,40 +1,31 @@
-body {
-  background-color: #43AC72;
-}
-
-.inputClass {
-    margin-left: 40px;
-    background-color: whitesmoke;
-    max-width: 400px;
-  }
-  
-  .example-right-align {
-    text-align: right;
-  }
-  
-  input.example-right-align::-webkit-outer-spin-button,
-  input.example-right-align::-webkit-inner-spin-button {
-    display: none;
-  }
-  
-  input.example-right-align {
-    -moz-appearance: textfield;
+.btn-group-vertical {
+    display: table-cell;
+    font-size: 40px;
+    margin-left: 100px;
+    width: 120px;
+    align-items: center;
   }
 
-  .example-card {
-    margin-left: 40px;
-    max-width: 400px;
+  mat-card {
+    margin: 5rem auto;
+    width: 100%;
+    align-items: center;
     align-content: center;
-    background-color: #2b9948;
+    background-color: #316d40;
   }
 
-  .mat-button {
-    margin-left: 40px;
+  mat-menu{
+    background-color: rgb(29, 214, 214);
+    align-content: center;
+    height: 40%;
+
   }
 
-  .logo-card {
-    margin-right: 40px;
-    max-width: 400px;
-    max-height: 400px;
-    padding: 10px;
+  mat-card-mat-card-title {
+    margin: 0.5rem auto;
+    width: 100%;
+    align-content: center;
+    box-shadow: rgb(147, 236, 112);
   }
+
+  

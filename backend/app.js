@@ -6,9 +6,13 @@ const mongoose = require("mongoose");
 const app = express();
 
 const userRoutes = require("./routes/user");
+const inventoryRoutes = require("./routes/inventory");
+const productRoutes = require("./routes/product");
+const supplierRoutes = require("./routes/supplier");
+const stockRoutes = require("./routes/stock");
 
-mongoose.connect("mongodb+srv://supun:YUpmXE7RGaOwfNCk@cluster0-sbw11.mongodb.net/ArogyaPharmacy", { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => {
+mongoose.connect("mongodb+srv://supun:YUpmXE7RGaOwfNCk@cluster0-sbw11.mongodb.net/ArogyaPharmacy", { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
+    .then(() => {                                                                                   //
       console.log('Connected to the database!');
     })  
    .catch(() => {
@@ -21,7 +25,7 @@ mongoose.connect("mongodb+srv://supun:YUpmXE7RGaOwfNCk@cluster0-sbw11.mongodb.ne
    app.use((_req, res, next) => {
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Headers","Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.setHeader("Access-Control-Allow-Methods","GET, POST, PATCH, DELETE, OPTIONS");    
+    res.setHeader("Access-Control-Allow-Methods","GET, PUT, POST, DELETE, PATCH, OPTIONS");    
     next();
 });
 
@@ -36,6 +40,10 @@ mongoose.connect("mongodb+srv://supun:YUpmXE7RGaOwfNCk@cluster0-sbw11.mongodb.ne
 
 /*app.use("/api/posts", postsRoutes);*/
 app.use("/api/user", userRoutes);
+app.use("/api/inventory", inventoryRoutes);
+app.use("/api/product", productRoutes);
+app.use("/api/supplier", supplierRoutes);
+app.use("/api/stock", stockRoutes);
 
   
 module.exports = app;

@@ -1,8 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital@1&display=swap');
-
-.title-class {
-    text-align: center;
-    font-family: 'Vollkorn', serif;
-    src: url('https://fonts.googleapis.com/css2?family=Vollkorn:ital@1&display=swap');
-    font-weight: bold;
-}
+body {
+    background: linear-gradient(70deg, #e6e6e6, #f7f7f7);
+    color: #514B64;
+    min-height: 100vh;
+  }
+  
+  code {
+    background: #fff;
+    padding: 0.2rem;
+    border-radius: 0.2rem;
+    margin: 0 0.3rem;
+  }

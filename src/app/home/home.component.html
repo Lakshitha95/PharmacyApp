@@ -1,35 +1,32 @@
- <!--  class="logo-card" -->
- 
-<mat-card class="example-card" >
-  <img
-  width="400px"
-  height="400px"
-  margin-left = "500px"
-  alt="Pharmacy Logo"
-  src="assets/images/Arogya.jpg"
-/>
-
-<div class="container">
-    <div class="example-container">
-      <!--<mat-spinner *ngIf="isLoading"></mat-spinner> -->
-    <form  name="loginForm" (ngSubmit)="onLogin(loginForm)" #loginForm="ngForm" >  <!--   -->
-     <mat-form-field [style.width.px]="300" appearance="fill">
-       <mat-label>Enter your email</mat-label>
-       <input matInput placeholder="AP@xxx" type="email" [formControl]="email" required> <!--ngModel   -->
-       <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-     </mat-form-field>
-     <br>
-     <mat-form-field [style.width.px]="300" appearance="fill">  
-       <mat-label>Enter your password</mat-label>
-       <input matInput [type]="hide ? 'password' : 'text'" name="password" required>
-       <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-       <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-       </button>
-     </mat-form-field>
-     <br>
-     <button mat-raised-button [style.width.px]="140" routerLink = '/adminpanel' type="submit">Login</button> <!--*ngIf="!isLoading"   -->
-     <button mat-raised-button [style.width.px]="140" class="mat-button" type="reset" >Reset</button>  <!--*ngIf="!isLoading"    -->
-    </form>
+﻿<mat-card><mat-card-title>General Features</mat-card-title></mat-card>
+    <!--<div class="card mt-4"></div>
+     <div class="card-body">
+        <p>You're logged in with Angular 8 & JWT!!</p>
+        <p>Your role is: <strong>{{currentUser.role}}</strong>.</p>
+        <p>This page can be accessed by <u>all authenticated users</u>.</p>
+        <p class="mb-1">Current user from secure api end point:</p>
+        <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+        <ul *ngIf="userFromApi">
+            <li>{{userFromApi.firstName}} {{userFromApi.lastName}}</li>
+        </ul>
     </div>
-</div>
+</div> -->
+<mat-card  class="mat-elevation-z30">
+    
+<!--<div class="container"> -->
+ <span >
+    <button mat-raised-button [style.width.px]="400" [style.hight.px]="50" [style.margin-left.px]="70" style="font-size: 16px;" type="button" routerLink="/inventory" color="primary" class="btn btn-secondary">Inventory</button>
+     <!-- <br><br>-->
+    <button mat-raised-button [style.width.px]="400" [style.margin-left.px]="100" style="font-size: 16px;" type="button" routerLink="/notification" color="primary" class="btn btn-secondary">Notifications</button>
+    <br><br> <!--routerLink="/notification" -->
+    <button mat-raised-button [style.width.px]="400" [style.margin-left.px]="70" style="font-size: 16px;" type="button" routerLink="/bnf" color="primary" class="btn btn-secondary">BNF</button>
+     <!--routerLink="/bnf" <br><br>-->
+    <button mat-raised-button [style.width.px]="400" [style.margin-left.px]="100" style="font-size: 16px;" type="button"  color="primary" class="btn btn-secondary">Reports</button>
+    <br><br> <!--routerLink="/reports"-->
+    <button mat-raised-button [style.width.px]="400" [style.margin-left.px]="70" class="btn btn-secondary btn-block" style="font-size: 16px;" type="button" routerLink="/billing" color="primary" >Billing</button>
+     <!--routerLink="/billing" <br><br>-->
+    <button mat-raised-button [style.width.px]="400" [style.margin-left.px]="100" style="font-size: 16px;" type="button" (click)="logout()" color="primary" class="btn btn-secondary">Exit</button>
+ </span>
+<!--</div>-->  
 </mat-card>
+

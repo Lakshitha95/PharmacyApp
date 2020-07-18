@@ -1,37 +1,27 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+﻿import { Component } from '@angular/core';
+import { first } from 'rxjs/operators';
 
-import { AuthService } from '../auth/auth.service';
+import { User } from '@app/_models';
+import { UserService, AuthenticationService } from '@app/_services';
 
-@Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
-})
+@Component({ templateUrl: 'home.component.html', styleUrls: ['./home.component.css'] })
 export class HomeComponent {
-  isLoading = false;
+    loading = false;
+    currentUser: User;
+    userFromApi: User;
 
-  email = new FormControl('', [Validators.required, Validators.email]);
-  hide = true;
-
-  getErrorMessage() {
-    if (this.email.hasError('required')) {
-      return 'You must enter a value';
+    constructor(
+        private userService: UserService,
+        private authenticationService: AuthenticationService
+    ) {
+        this.currentUser = this.authenticationService.currentUserValue;
     }
 
-    return this.email.hasError('email') ? 'Not a valid email' : '';
-  }
-
-  constructor(public authService: AuthService) { }
-
-  onLogin(form: NgForm) {
-    if (form.invalid) {
-      return;
-  }
-  this.isLoading = true;
-  this.authService.login(form.value.email, form.value.password);
-    
-  
- }
+    ngOnInit() {
+        this.loading = true;
+        this.userService.getById(this.currentUser.id).pipe(first()).subscribe(user => {
+            this.loading = false;
+            this.userFromApi = user;
+        });
+    }
 }
